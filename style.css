@@ -327,15 +327,3 @@ p {
   transform: translateZ(0);
 }
 
-/* Bloqueia gestos de zoom e scroll nos elementos principais */
-html, body {
-  overscroll-behavior: contain; /* Impede pull-to-refresh e overscroll */
-  touch-action: manipulation; /* Bloqueia zoom duplo */
-  margin: 0;
-  height: 100%;
-  overflow: hidden; /* Remove scrollbars */
-}
-
-#tabuleiro {
-  touch-action: none; /* Desativa todos os gestos de toque dentro do tabuleiro */
-}

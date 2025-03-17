@@ -529,19 +529,3 @@ ${anoAtual} Bruno Moraes`;
 
 
 /* ********************************************* */
-// Bloqueia todos os eventos padrão de toque na janela
-window.addEventListener('touchstart', function(e) {
-    if (e.target === tabuleiro || e.target === raquete || e.target === bola) {
-        e.preventDefault();
-    }
-}, { passive: false });
-
-window.addEventListener('touchmove', function(e) {
-    e.preventDefault();
-}, { passive: false });
-
-// Bloqueia o menu de contexto (toque longo)
-window.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-    return false;
-});
