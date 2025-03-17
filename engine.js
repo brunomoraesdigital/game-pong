@@ -302,9 +302,14 @@ tabuleiro.addEventListener('touchmove',
             posicaoRaqueteX = larguraTabuleiro - larguraRaquete;
         }
         raquete.style.left = posicaoRaqueteX + 'px';
-    }
-)
+    },{ passive: false }
+);
 
+window.addEventListener('touchmove',
+    function (evento) {
+        evento.preventDefault();
+    }
+);
 /***************************************
  * MOVIMENTAÇÃO DA RAQUETE COM O MOUSE * xxxxxxxxxxxxxxx xxxxxxxxxxx
  ***************************************/
@@ -335,14 +340,14 @@ const teclas = {
     ArrowRight: false
 };
 
-window.addEventListener('keydown', (evento) => {
+tabuleiro.addEventListener('keydown', (evento) => {
     if (['ArrowLeft', 'ArrowRight'].includes(evento.key)) {
         evento.preventDefault();
         teclas[evento.key] = true;
     }
 });
 
-window.addEventListener('keyup', (evento) => {
+tabuleiro.addEventListener('keyup', (evento) => {
     if (['ArrowLeft', 'ArrowRight'].includes(evento.key)) {
         evento.preventDefault();
         teclas[evento.key] = false;
