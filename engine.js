@@ -202,8 +202,12 @@ function loopDoJogo() {
 
     if (posicaoBolaY <= alturaRaquete) {
         if (
+            /*
             posicaoBolaX + tamanhoBola >= posicaoRaqueteX &&
             posicaoBolaX <= posicaoRaqueteX + larguraRaquete
+            */
+            posicaoBolaX + tamanhoBola >= posicaoRaqueteX -5 &&
+            posicaoBolaX <= posicaoRaqueteX + larguraRaquete +5
         ) {
             const pontoDeImpacto = (posicaoBolaX + tamanhoBola / 2) - (posicaoRaqueteX + larguraRaquete / 2);
             let impactoNormalizado = pontoDeImpacto / (larguraRaquete / 2);
@@ -294,7 +298,7 @@ tabuleiro.addEventListener('touchmove',
         const retangulo = tabuleiro.getBoundingClientRect();
         const posicaoToqueX = toque.clientX - retangulo.left;
         posicaoRaqueteX = posicaoToqueX - larguraRaquete / 2;
-
+        //if (jogoEmExecucao) {
         if (posicaoRaqueteX < 0) {
             posicaoRaqueteX = 0;
         }
@@ -302,14 +306,10 @@ tabuleiro.addEventListener('touchmove',
             posicaoRaqueteX = larguraTabuleiro - larguraRaquete;
         }
         raquete.style.left = posicaoRaqueteX + 'px';
-    },{ passive: false }
-);
+        //}
+    }, { passive: false }
+)
 
-window.addEventListener('touchmove',
-    function (evento) {
-        evento.preventDefault();
-    }
-);
 /***************************************
  * MOVIMENTAÇÃO DA RAQUETE COM O MOUSE * xxxxxxxxxxxxxxx xxxxxxxxxxx
  ***************************************/
@@ -322,6 +322,7 @@ window.addEventListener('mousemove',
         const posicaoX/*mouseX*/ = evento.clientX - retangulo.left;
         posicaoRaqueteX = posicaoX - (larguraRaquete / 2);
 
+        //if (jogoEmExecucao) {
         if (posicaoRaqueteX < 0) {
             posicaoRaqueteX = 0;
         }
@@ -329,7 +330,8 @@ window.addEventListener('mousemove',
             posicaoRaqueteX = larguraTabuleiro - larguraRaquete;
         }
         raquete.style.left = posicaoRaqueteX + 'px';
-    }
+        //}
+    }, { passive: false }
 );
 
 /***************************************
@@ -340,14 +342,14 @@ const teclas = {
     ArrowRight: false
 };
 
-tabuleiro.addEventListener('keydown', (evento) => {
+window.addEventListener('keydown', (evento) => {
     if (['ArrowLeft', 'ArrowRight'].includes(evento.key)) {
         evento.preventDefault();
         teclas[evento.key] = true;
     }
 });
 
-tabuleiro.addEventListener('keyup', (evento) => {
+window.addEventListener('keyup', (evento) => {
     if (['ArrowLeft', 'ArrowRight'].includes(evento.key)) {
         evento.preventDefault();
         teclas[evento.key] = false;
@@ -526,3 +528,20 @@ ${anoAtual} Bruno Moraes`;
 /*********************************/
 
 
+/* ********************************************* */
+// Bloqueia todos os eventos padrão de toque na janela
+window.addEventListener('touchstart', function(e) {
+    if (e.target === tabuleiro || e.target === raquete || e.target === bola) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+window.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+}, { passive: false });
+
+// Bloqueia o menu de contexto (toque longo)
+window.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+});
