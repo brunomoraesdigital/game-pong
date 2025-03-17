@@ -1,42 +1,42 @@
-(function() {
+(function () {
     var loader = document.getElementById("loader");
     if (loader) {
-      loader.style.display = "flex";
+        loader.style.display = "flex";
     }
-  
+
     var dots = document.getElementById("dots");
-  
+
     function updateDots() {
-      if (dots.textContent.length >= 3) {
-        dots.textContent = "";
-      } else {
-        dots.textContent += ".";
-      }
+        if (dots.textContent.length >= 3) {
+            dots.textContent = "";
+        } else {
+            dots.textContent += ".";
+        }
     }
-    
+
     var intervalId = setInterval(updateDots, 333);
-  
+
     // Registra o tempo de início
     var startTime = new Date().getTime();
     var minDuration = 2000; // 3 segundos
-  
-    window.addEventListener("load", function() {
-      var elapsed = new Date().getTime() - startTime;
-      var remaining = minDuration - elapsed;
-      if (remaining < 0) {
-        remaining = 0;
-      }
-      
-      setTimeout(function() {
-        clearInterval(intervalId);
-        if (loader) {
-          loader.style.display = "none";
+
+    window.addEventListener("load", function () {
+        var elapsed = new Date().getTime() - startTime;
+        var remaining = minDuration - elapsed;
+        if (remaining < 0) {
+            remaining = 0;
         }
-      }, remaining);
+
+        setTimeout(function () {
+            clearInterval(intervalId);
+            if (loader) {
+                loader.style.display = "none";
+            }
+        }, remaining);
     });
-  })();
-  
-  
+})();
+
+
 
 /* ******************************
  * AJUSTE DINÂMICO DE FONTES  *
@@ -289,19 +289,19 @@ function definirPosicoes() {
 tabuleiro.addEventListener('touchmove',
     function (evento) {
         evento.preventDefault();
+        if (!jogoEmExecucao) return;
         const toque = evento.touches[0];
         const retangulo = tabuleiro.getBoundingClientRect();
         const posicaoToqueX = toque.clientX - retangulo.left;
         posicaoRaqueteX = posicaoToqueX - larguraRaquete / 2;
-        if (jogoEmExecucao) {
-            if (posicaoRaqueteX < 0) {
-                posicaoRaqueteX = 0;
-            }
-            if (posicaoRaqueteX > larguraTabuleiro - larguraRaquete) {
-                posicaoRaqueteX = larguraTabuleiro - larguraRaquete;
-            }
-            raquete.style.left = posicaoRaqueteX + 'px';
+
+        if (posicaoRaqueteX < 0) {
+            posicaoRaqueteX = 0;
         }
+        if (posicaoRaqueteX > larguraTabuleiro - larguraRaquete) {
+            posicaoRaqueteX = larguraTabuleiro - larguraRaquete;
+        }
+        raquete.style.left = posicaoRaqueteX + 'px';
     }
 )
 
@@ -309,7 +309,7 @@ tabuleiro.addEventListener('touchmove',
  * MOVIMENTAÇÃO DA RAQUETE COM O MOUSE * xxxxxxxxxxxxxxx xxxxxxxxxxx
  ***************************************/
 
-window.addEventListener('mousemove', 
+window.addEventListener('mousemove',
     function (evento) {
         evento.preventDefault();
         if (!jogoEmExecucao) return;
@@ -317,16 +317,15 @@ window.addEventListener('mousemove',
         const posicaoX/*mouseX*/ = evento.clientX - retangulo.left;
         posicaoRaqueteX = posicaoX - (larguraRaquete / 2);
 
-        if (jogoEmExecucao) {
-            if (posicaoRaqueteX < 0) {
-                posicaoRaqueteX = 0;
-            }
-            if (posicaoRaqueteX > larguraTabuleiro - larguraRaquete) {
-                posicaoRaqueteX = larguraTabuleiro - larguraRaquete;
-            }
-            raquete.style.left = posicaoRaqueteX + 'px';
+        if (posicaoRaqueteX < 0) {
+            posicaoRaqueteX = 0;
         }
-});
+        if (posicaoRaqueteX > larguraTabuleiro - larguraRaquete) {
+            posicaoRaqueteX = larguraTabuleiro - larguraRaquete;
+        }
+        raquete.style.left = posicaoRaqueteX + 'px';
+    }
+);
 
 /***************************************
  * MOVIMENTAÇÃO DA RAQUETE COM TECLADO *
@@ -522,4 +521,3 @@ ${anoAtual} Bruno Moraes`;
 /*********************************/
 
 
-  
