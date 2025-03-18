@@ -58,4 +58,9 @@ O **Pong Game** foi criado com o intuito de:
 ## Licença
 
 Este projeto está licenciado sob a Licença AGPL v3 - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+- **Aviso de Licença e Copyright** Uma cópia do aviso de licença e de copyright deve ser incluída com o material licenciado.
+- **Declarar alterações** As alterações feitas no material licenciado devem ser documentadas.
+- **Divulgar o código-fonte** O código-fonte deve ser disponibilizado quando o material licenciado for distribuído.
+- **Uso em rede é considerado distribuição** Usuários que interagem com o material licenciado via rede devem ter o direito de receber uma cópia do código-fonte.
+- **Mesma licença** As modificações devem ser liberadas sob a mesma licença ao distribuir o material licenciado. Em alguns casos, uma licença similar ou relacionada pode ser usada.
 
