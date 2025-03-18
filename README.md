@@ -13,18 +13,21 @@ O **Pong Game** foi criado com o intuito de:
 
 ## Funcionalidades
 
-- **Controle de Raquetes**: O jogador pode mover as raquetes para cima e para baixo usando o teclado.
-  - Raquete esquerda: teclas `W` (para cima) e `S` (para baixo)
-  - Raquete direita: setas `↑` (para cima) e `↓` (para baixo)
+- **Controle de Raquetes**: O jogador pode mover as raquetes para esquerda e para direita usando o teclado.
+  - Raquete direita: setas `←` (para esquerda) e `→` (para direita)
   
-- **Bola em Movimento**: A bola se move automaticamente e quica nas bordas e nas raquetes.
+- **Bola em Movimento**: A bola se move automaticamente e quica nas paresdes e na raquete.
   
-- **Pontuação**: Cada jogador marca pontos quando a bola ultrapassa a raquete do oponente. A pontuação é exibida na tela.
+- **Pontuação**: A pontuação atual e o recorde são exibidos na tela, ficando registrando o recorde ao início de uma nova partida.
+  
+- **Nível**: O nível do jogo é exibido na tela e aumenta conforme a pontuação sobe. A cada **100 pontos**, a dificuldade do jogo aumenta.  
 
-- **Reinício Automático**: A bola e as raquetes são reposicionadas automaticamente no centro após cada ponto.
+- **Vidas**: O jogador tem um limite de **5 vidas**, exibidas na tela. A cada certo número de pontos obtidos, o jogador ganha uma vida extra.  
 
-- **Design Simples**: A interface do jogo tem um design minimalista, com a área de jogo e os elementos representados de forma clara e simples.
-  
+- **Reinício Automático**: Após cada ponto marcado, a bola e as raquetes são reposicionadas automaticamente no centro da tela.  
+
+- **Design Simples**: O jogo possui uma interface minimalista, com elementos bem definidos para uma experiência clara e intuitiva.
+
 - **Design Responsivo**: Funciona em qualquer tamanho de tela.
 
 ## Tecnologias Utilizadas
@@ -35,18 +38,22 @@ O **Pong Game** foi criado com o intuito de:
 
 ## Melhorias a serem implementadas
 
-- [ ] incluir a pontuação máxima para o valor de 5.
-- [ ] Ajustar a velocidade da bola ao acertar as raquetes.
-- [ ] incluir uma contagem de tempo para inicio do jogo, bem como para reinicio da partida.
-- [ ] Dependendo de onde a bolinha acertar na raquete, a bolinha deve ir em um angulo direrente.
-- [ ] Incluir um pequeno tutorial.
+- [x] incluir a pontuação máxima para o valor de 5 digitos.
+- [x] Ajustar a velocidade da bola ao acertar as raquetes, a bolinha está ganhando velocidade ao colidir com a raquete.
+- [x] Incluir uma contagem de tempo para inicio do jogo, bem como para reinicio do jogo (relançamento bolinha, após perder uma vida).
+- [x] Dependendo de onde a bolinha acertar na raquete, a bolinha deve ir em um angulo direrente.
+- [x] Incluir um pequeno tutorial.
+- [x] Movimentar a raquete com o mouse.
+- [x] Movimentar a raquete com o teclado.
+- [x] Incluir um loader de pré-carregamento antes do jogo iniciar, uma animação de carregamento deve ser exibida para garantir que todos os elementos estejam prontos antes da jogabilidade começar.
 
 ## Problemas Observados a Serem Resolvidos
 
-- [ ] A bola nem sempre reinicia indo para o lado contrário.
-- [x] Não é possível usar as duas raquetes juntas.
+- [x] A bola nem sempre reinicia indo para o lado contrário.
+- [x] A bola deve reiniciar sempre indo para cima, para evitar perder a bola caso o jogador mova a raquete rápido demais.
 - [x] As raquetes tem um pequeno atraso para iniciar o movimento.
-- [ ] Algumas vezes a bolinha desliza verticalmente e rente pela lateral da raquete, ou mesmo passa por dentro da raquete.
+- [x] Algumas vezes a bolinha desliza verticalmente e rente pela lateral da raquete, ou mesmo passa por dentro da raquete.
+- [x] Quando o cursor do mouse sai da area do jogo, para de controlar a raquete.
 
 ## Licença
 
