@@ -57,4 +57,5 @@ O **Pong Game** foi criado com o intuito de:
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT.
+Este projeto está licenciado sob a Licença AGPL v3 - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
