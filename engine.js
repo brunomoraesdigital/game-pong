@@ -77,7 +77,6 @@ window.addEventListener('resize', debounce(aoRedimensionar, 100));
 
 (function inicializar() {
     aoRedimensionar();
-    console.log('oi');
 })();
 
 /*************************************
@@ -131,6 +130,8 @@ let ultimoPontoAumentoVelocidade = 0;
 
 let contadorRegressivoAtivo = false;
 
+let inicioDaPartida = false;
+
 /********************
  * CONTROLE DO JOGO *
  ********************/
@@ -172,7 +173,9 @@ function iniciar_jogo() {
     botao.style.display = 'none';
     jogoEmExecucao = true;
     // Iniciar o loop
-    idFrameAnimacao = requestAnimationFrame(loopDoJogo);
+    //idFrameAnimacao = requestAnimationFrame(loopDoJogo);
+    inicioDaPartida = true;
+    iniciarContagemRegressiva();
 }
 
 
@@ -269,7 +272,7 @@ function loopDoJogo() {
             fimDeJogo();
             return;
         }
-        iniciarContagemRegressiva()
+        iniciarContagemRegressiva();
         return; //Interrompe a execução da função
     }
 
@@ -297,6 +300,7 @@ tabuleiro.addEventListener('touchmove',
     function (evento) {
         evento.preventDefault();
         if (!jogoEmExecucao) return;
+        if (inicioDaPartida) return;
         const toque = evento.touches[0];
         const retangulo = tabuleiro.getBoundingClientRect();
         const posicaoToqueX = toque.clientX - retangulo.left;
@@ -321,6 +325,7 @@ window.addEventListener('mousemove',
     function (evento) {
         evento.preventDefault();
         if (!jogoEmExecucao) return;
+        if (inicioDaPartida) return;
         const retangulo/*rect*/ = tabuleiro.getBoundingClientRect();
         const posicaoX/*mouseX*/ = evento.clientX - retangulo.left;
         posicaoRaqueteX = posicaoX - (larguraRaquete / 2);
@@ -451,7 +456,12 @@ function iniciarContagemRegressiva() {
             clearInterval(intervaloId);
             temporizadorEl.style.display = 'none';
             contadorRegressivoAtivo = false;
+            if (inicioDaPartida) {
+                inicioDaPartida = false;
+                idFrameAnimacao = requestAnimationFrame(loopDoJogo);
+            } else {
             reiniciarRodada();
+            }
         }
     }, 1000);
 }
