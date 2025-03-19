@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+a:link {text-decoration: none;color: #fff;}
+a:visited {text-decoration: none; color: #fff;}
+a:hover {text-decoration: none;color: goldenrod;}
+a:active {text-decoration: none;color: gold;}
+a:focus {text-decoration: none;color: goldenrod;}
+
 :root {
   --tamanho-da-fonte: 16px;
   transition: font-size 0.3s ease;

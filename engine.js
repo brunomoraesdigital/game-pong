@@ -523,8 +523,9 @@ const anoAtualElement = document.getElementById("ano-atual");
 const anoAtual = new Date().getFullYear();
 
 // Atualiza o conteúdo do elemento com o ano atual
-anoAtualElement.textContent = `©
-${anoAtual} Bruno Moraes - Evoluindo a cada código | Licença AGPL v3`;
+anoAtualElement.innerHTML = `<a href="https://bmfolio.web.app/" target="_blank" rel="noopener noreferrer">
+    © ${anoAtual} Bruno Moraes - Evoluindo a cada código
+</a> | Licença AGPL v3`;
 /*********************************/
 
 
