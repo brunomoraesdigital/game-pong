@@ -1,3 +1,6 @@
+/* ********
+ * loader *
+ ******** */
 (function () {
     var loader = document.getElementById("loader");
     if (loader) {
@@ -38,9 +41,9 @@
 
 
 
-/* ******************************
+/* ****************************
  * AJUSTE DINÂMICO DE FONTES  *
- ****************************** */
+ **************************** */
 
 function obterDimensoesDaTela() {
     return {
@@ -107,9 +110,9 @@ const alturaRaquete = raquete.offsetHeight;
 const tamanhoBola = bola.offsetWidth;
 
 
-/************************************
- * Variáveis                        *
- ************************************/
+/*************
+ * Variáveis *
+ *************/
 let posicaoRaqueteX;
 let posicaoBolaX, posicaoBolaY;
 let velocidadeBolaX, velocidadeBolaY;
@@ -128,9 +131,9 @@ let ultimoPontoAumentoVelocidade = 0;
 
 let contadorRegressivoAtivo = false;
 
-/************************************
- * CONTROLE DO JOGO                 *
- ************************************/
+/********************
+ * CONTROLE DO JOGO *
+ ********************/
 
 (function ajustar() {
     definirPosicoes();
@@ -311,7 +314,7 @@ tabuleiro.addEventListener('touchmove',
 )
 
 /***************************************
- * MOVIMENTAÇÃO DA RAQUETE COM O MOUSE * xxxxxxxxxxxxxxx xxxxxxxxxxx
+ * MOVIMENTAÇÃO DA RAQUETE COM O MOUSE * 
  ***************************************/
 
 window.addEventListener('mousemove',
@@ -374,9 +377,9 @@ window.addEventListener('resize', function () {
 });
 
 
-/************************************
- * ATUALIZAÇÃO DE EXIBIÇÃO          *
- ************************************/
+/***************************
+ * ATUALIZAÇÃO DE EXIBIÇÃO *
+ ***************************/
 
 function atualizarPosicoes() {
     raquete.style.left = posicaoRaqueteX + 'px';
@@ -410,9 +413,9 @@ function atualizarExibicaoNivel() {
 }
 
 
-/************************************
- * MELHORIAS E EVENTOS               *
- ************************************/
+/***********************
+ * MELHORIAS E EVENTOS *
+ ***********************/
 function aumentarVelocidadeBola() {
     const sinalX = velocidadeBolaX >= 0 ? 1 : -1;
     const sinalY = velocidadeBolaY >= 0 ? 1 : -1;
@@ -478,9 +481,9 @@ function fimDeJogo() {
 }
 
 
-/************************************
- * GERENCIAMENTO DE SONS            *
- ************************************/
+/*************************
+ * GERENCIAMENTO DE SONS *
+ *************************/
 const contextoAudio = new (window.AudioContext || window.webkitAudioContext)();
 const buffersAudio = {};
 
@@ -515,7 +518,9 @@ carregarSom("extraVida", "./recursos/somExtraVida.mp3");
 carregarSom("levelUp", "./recursos/somLevelUp.mp3");
 carregarSom("gameOver", "./recursos/somGameOver.mp3");
 
-/*********************************/
+/*************************
+ * GERENCIAMENTO DE SONS *
+ *************************/
 // Seleciona o elemento onde o ano será exibido
 const anoAtualElement = document.getElementById("ano-atual");
 
