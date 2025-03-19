@@ -15,7 +15,6 @@ a:focus {text-decoration: none;color: goldenrod;}
   transition: font-size 0.3s ease;
 }
 
-
 html {
   width: 100vw;
   height: 100vh;
@@ -333,3 +332,7 @@ p {
   transform: translateZ(0);
 }
 
+.textoDica {
+  font-weight: 700;
+  color: goldenrod;
+}
