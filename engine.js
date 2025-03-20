@@ -296,7 +296,7 @@ function definirPosicoes() {
  * MOVIMENTAÇÃO DA RAQUETE COM O DEDO *
  **************************************/
 
-tabuleiro.addEventListener('touchmove',
+window.addEventListener('touchmove',
     function (evento) {
         evento.preventDefault();
         if (!jogoEmExecucao) return;
